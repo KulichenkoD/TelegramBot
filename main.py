@@ -34,7 +34,7 @@ async def dump():
         await asyncio.sleep(10)
 
 
-async def on_startup(x):
+async def on_startup():
     asyncio.create_task(dump())
 
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -199,7 +199,5 @@ async def process_other_answers(message: Message):
 
 if __name__ == '__main__':
     user = open_dict()
-    on_startup(user)
+    on_startup()
     dp.run_polling(bot)
-    # if user != None:
-    #     executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
